@@ -1,0 +1,313 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Attendance System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      background: rgb(226, 226, 226);
+    }
+
+    .header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #003471;
+    }
+
+    .header p {
+      margin: 0;
+      font-size: 1.2rem;
+      color: #555;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      left: 0;
+      width: 90px;
+      background: #fff;
+      overflow: hidden;
+      transition: 1s;
+    }
+
+    nav:hover {
+      width: 280px;
+      transition: 1s;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li {
+      position: relative;
+    }
+
+    nav ul li a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      padding: 15px 20px;
+    }
+
+    nav ul li a .nav-item {
+      display: none;
+      margin-left: 10px;
+    }
+
+    nav:hover ul li a .nav-item {
+      display: inline;
+    }
+
+    nav ul li a .logo img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+
+    nav ul li a .fas {
+      font-size: 1.5rem;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin: 20px 0;
+    }
+
+    .info-container,
+    .qr-container {
+      flex: 1;
+      margin: 0 10px;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .info-container h2,
+    .qr-container h2 {
+      font-size: 1.5rem;
+      color: #003471;
+      margin-bottom: 10px;
+    }
+
+    .info-container p,
+    .qr-container p {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    .table-container {
+      width: 80%;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    th,
+    td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #003471;
+      color: white;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #fff;
+      background-color: #003471;
+      text-align: center;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .button:hover {
+      background-color: #00204d;
+    }
+
+    .qr-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .content {
+      margin-left: 100px;
+      padding: 20px;
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#" class="logo">
+          <img src="./pic/logo.jpg" alt="Logo">
+          <span class="nav-item">Admin</span>
+        </a></li>
+      <li><a href="#">
+          <i class="fas fa-menorah"></i>
+          <span class="nav-item">Dashboard</span>
+        </a></li>
+      <li><a href="#">
+          <i class="fas fa-comment"></i>
+          <span class="nav-item">Message</span>
+        </a></li>
+      <li><a href="#">
+          <i class="fas fa-database"></i>
+          <span class="nav-item">Report</span>
+        </a></li>
+      <li><a href="#">
+          <i class="fas fa-chart-bar"></i>
+          <span class="nav-item">Attendance</span>
+        </a></li>
+      <li><a href="#">
+          <i class="fas fa-cog"></i>
+          <span class="nav-item">Setting</span>
+        </a></li>
+      <li><a href="#" class="logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span class="nav-item">Log out</span>
+        </a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <div class="header">
+      <h1>Student Attendance System</h1>
+      <p>Manage and track student attendance efficiently</p>
+    </div>
+
+    <div class="container">
+      <div class="info-container">
+        <h2>Class Information</h2>
+        <p><strong>Lecturer Name:</strong> Dr. Jane Doe</p>
+        <p><strong>Classroom ID:</strong> 10A</p>
+        <p><strong>Class Code:</strong> CS101</p>
+        <p><strong>Date:</strong> 2024-07-02</p>
+        <p><strong>Time:</strong> 10:00 AM - 11:00 AM</p>
+      </div>
+
+      <div class="qr-container">
+        <h2>Scan QR Code for Attendance</h2>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&amp;data=Attendance-QR-Code" alt="QR Code">
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Student ID</th>
+            <th>Name</th>
+            <th>Attendance</th>
+            <th>Remark</th>
+            <th>Valid Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>John Doe</td>
+            <td>Present</td>
+            <td>-</td>
+            <td>No</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Jane Smith</td>
+            <td>Absent</td>
+            <td>-</td>
+            <td>No</td>
+          </tr>
+          <!-- Add more rows as needed -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- Code injected by live-server -->
+  <script>
+    // <![CDATA[  <-- For SVG support
+    if ('WebSocket' in window) {
+      (function () {
+        function refreshCSS() {
+          var sheets = [].slice.call(document.getElementsByTagName("link"));
+          var head = document.getElementsByTagName("head")[0];
+          for (var i = 0; i < sheets.length; ++i) {
+            var elem = sheets[i];
+            var parent = elem.parentElement || head;
+            parent.removeChild(elem);
+            var rel = elem.rel;
+            if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+              var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+              elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+            }
+            parent.appendChild(elem);
+          }
+        }
+        var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+        var address = protocol + window.location.host + window.location.pathname + '/ws';
+        var socket = new WebSocket(address);
+        socket.onmessage = function (msg) {
+          if (msg.data == 'reload') window.location.reload();
+          else if (msg.data == 'refreshcss') refreshCSS();
+        };
+        if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+          console.log('Live reload enabled.');
+          sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+        }
+      })();
+    }
+    else {
+      console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+    }
+  </script>
+
+
+
+</body>
+
+</html>
